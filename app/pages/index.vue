@@ -28,6 +28,9 @@ function resolveIcon(item: LittleLinkItem): string | null {
   const name = item.icon ?? (item.brand && BRAND_ALIASES[item.brand]?.icon) ?? item.brand
   if (!name)
     return null
+  // Explicit path or URL (custom icons, any extension/folder) used as-is.
+  if (name.startsWith('http') || name.startsWith('/'))
+    return name
   const dir = item.extended ? 'icons-extended' : 'icons'
   return `/littlelink/${dir}/${name}.svg`
 }
@@ -45,6 +48,7 @@ useHead({
     { rel: 'stylesheet', href: '/littlelink/css/style.css' },
     { rel: 'stylesheet', href: '/littlelink/css/brands.css' },
     { rel: 'stylesheet', href: '/littlelink/css/brands-extended.css' },
+    { rel: 'stylesheet', href: '/littlelink/css/brands-custom.css' },
   ],
 })
 </script>

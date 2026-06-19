@@ -12,34 +12,25 @@
       "url": "https://github.com/nicolasfvrx",
       "brand": "github"
     },
-    {
-      "label": "Follow on X",
-      "url": "https://x.com/",
-      "brand": "x"
-    },
-    {
-      "label": "Telegram",
-      "url": "https://t.me/",
-      "brand": "telegram"
-    },
     { "section": "Contact & web" },
     {
       "label": "Email me",
-      "url": "mailto:nicolas@favre.icu",
+      "url": "mailto:contact@norfair00.fr",
       "brand": "generic-email",
       "color": "default"
     },
     {
       "label": "Visit my website",
-      "url": "https://favre.icu",
+      "url": "https://norfair.tech",
       "brand": "generic-website",
       "color": "default"
     },
     { "section": "Liens affiliés" },
     {
-      "label": "Amazon",
-      "url": "https://amzn.to/your-affiliate-link",
-      "brand": "amazon"
+      "label": "Dyjix",
+      "url": "https://norfair.link/dyjix",
+      "brand": "dyjix",
+      "icon": "/littlelink/icons-custom/dyjix.png"
     }
   ],
   "footer": "Powered by Sink"

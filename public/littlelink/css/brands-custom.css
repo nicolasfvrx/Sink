@@ -1,0 +1,12 @@
+/*
+ * Custom brand button styles (not part of LittleLink core/extended).
+ * Add your own .button-<name> rules here and reference them with
+ * `"brand": "<name>"` (or `"color": "<name>"`) in littlelink.json.
+ */
+
+/* Dyjix (hosting) */
+.button-dyjix {
+  --button-text: #1A1A1A;
+  --button-background: #FFFFFF;
+  --button-border: 1px solid #2D6CDF;
+}

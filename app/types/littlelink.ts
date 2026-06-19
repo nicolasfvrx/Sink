@@ -16,8 +16,10 @@ export interface LittleLinkItem {
    */
   color?: string
   /**
-   * Icon file name (without extension) under /littlelink/icons/.
-   * Overrides the value derived from `brand`. e.g. "github", "generic-email".
+   * Icon file name (without extension) under /littlelink/icons/, OR an
+   * explicit path/URL (starting with "/" or "http") for custom icons of
+   * any extension/folder. e.g. "github", "/littlelink/icons-custom/dyjix.png".
+   * Overrides the value derived from `brand`.
    */
   icon?: string
   /**
