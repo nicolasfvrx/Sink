@@ -6,6 +6,7 @@
   "name": "Nicolas “Norfair”",
   "bio": "Développeur backend, passionné par les nouvelles technologies et l'open source. Je partage mes projets et mes connaissances sur mon blog et mes réseaux sociaux.",
   "links": [
+    { "section": "Réseaux sociaux" },
     {
       "label": "GitHub",
       "url": "https://github.com/nicolasfvrx",
@@ -21,6 +22,7 @@
       "url": "https://t.me/",
       "brand": "telegram"
     },
+    { "section": "Contact & web" },
     {
       "label": "Email me",
       "url": "mailto:nicolas@favre.icu",
@@ -32,6 +34,12 @@
       "url": "https://favre.icu",
       "brand": "generic-website",
       "color": "default"
+    },
+    { "section": "Liens affiliés" },
+    {
+      "label": "Amazon",
+      "url": "https://amzn.to/your-affiliate-link",
+      "brand": "amazon"
     }
   ],
   "footer": "Powered by Sink"

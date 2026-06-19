@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import type { LittleLinkConfig, LittleLinkItem } from '@/types/littlelink'
+import type { LittleLinkConfig, LittleLinkEntry, LittleLinkItem, LittleLinkSection } from '@/types/littlelink'
 import config from '@/config/littlelink.json'
 
 // Standalone page: skip Sink's default marketing layout.
 definePageMeta({ layout: false })
 
 const profile = config as LittleLinkConfig
+
+function isSection(entry: LittleLinkEntry): entry is LittleLinkSection {
+  return 'section' in entry
+}
 
 // A few brand keys whose button-color class or icon file differ from the key.
 const BRAND_ALIASES: Record<string, { color?: string, icon?: string }> = {
@@ -66,27 +70,31 @@ useHead({
       </p>
 
       <div class="button-stack" role="navigation">
-        <a
-          v-for="(item, index) in profile.links"
-          :key="index"
-          class="button"
-          :class="`
-            button-${resolveColor(item)}
-          `"
-          :href="item.url"
-          target="_blank"
-          rel="noopener"
-          role="button"
-        >
-          <img
-            v-if="resolveIcon(item)"
-            class="icon"
-            aria-hidden="true"
-            :src="resolveIcon(item)!"
-            :alt="`${item.label} logo`"
+        <template v-for="(entry, index) in profile.links" :key="index">
+          <h2 v-if="isSection(entry)" class="ll-section">
+            {{ entry.section }}
+          </h2>
+          <a
+            v-else
+            class="button"
+            :class="`
+              button-${resolveColor(entry)}
+            `"
+            :href="entry.url"
+            target="_blank"
+            rel="noopener"
+            role="button"
           >
-          {{ item.label }}
-        </a>
+            <img
+              v-if="resolveIcon(entry)"
+              class="icon"
+              aria-hidden="true"
+              :src="resolveIcon(entry)!"
+              :alt="`${entry.label} logo`"
+            >
+            {{ entry.label }}
+          </a>
+        </template>
       </div>
 
       <footer v-if="profile.footer">
@@ -95,3 +103,17 @@ useHead({
     </div>
   </div>
 </template>
+
+<style scoped>
+.ll-section {
+  width: 18.75rem;
+  max-width: 100%;
+  margin: 1.75rem auto 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  text-align: center;
+}
+</style>

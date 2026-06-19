@@ -27,6 +27,15 @@ export interface LittleLinkItem {
   extended?: boolean
 }
 
+/** A section separator/heading used to group links (e.g. "Affiliate links"). */
+export interface LittleLinkSection {
+  /** Section title rendered as a heading above the following links */
+  section: string
+}
+
+/** An entry in the `links` list: either a link button or a section heading. */
+export type LittleLinkEntry = LittleLinkItem | LittleLinkSection
+
 export interface LittleLinkConfig {
   /** Document <title> (defaults to `name`) */
   title?: string
@@ -40,8 +49,8 @@ export interface LittleLinkConfig {
   name: string
   /** Short bio shown under the name */
   bio?: string
-  /** The list of link buttons, rendered in order */
-  links: LittleLinkItem[]
+  /** The list of entries (links and section headings), rendered in order */
+  links: LittleLinkEntry[]
   /** Optional footer HTML/text */
   footer?: string
 }
