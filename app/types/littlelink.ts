@@ -20,6 +20,11 @@ export interface LittleLinkItem {
    * Overrides the value derived from `brand`. e.g. "github", "generic-email".
    */
   icon?: string
+  /**
+   * Set to true for LittleLink Extended brands, whose icons live under
+   * /littlelink/icons-extended/. e.g. "deezer", "codeberg", "bereal".
+   */
+  extended?: boolean
 }
 
 export interface LittleLinkConfig {

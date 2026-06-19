@@ -22,7 +22,10 @@ function resolveColor(item: LittleLinkItem): string {
 
 function resolveIcon(item: LittleLinkItem): string | null {
   const name = item.icon ?? (item.brand && BRAND_ALIASES[item.brand]?.icon) ?? item.brand
-  return name ? `/littlelink/icons/${name}.svg` : null
+  if (!name)
+    return null
+  const dir = item.extended ? 'icons-extended' : 'icons'
+  return `/littlelink/${dir}/${name}.svg`
 }
 
 // Load the complete, original LittleLink stylesheets (served from /public).
@@ -37,6 +40,7 @@ useHead({
     { rel: 'stylesheet', href: '/littlelink/css/reset.css' },
     { rel: 'stylesheet', href: '/littlelink/css/style.css' },
     { rel: 'stylesheet', href: '/littlelink/css/brands.css' },
+    { rel: 'stylesheet', href: '/littlelink/css/brands-extended.css' },
   ],
 })
 </script>
