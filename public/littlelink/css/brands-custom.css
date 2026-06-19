@@ -4,9 +4,8 @@
  * `"brand": "<name>"` (or `"color": "<name>"`) in littlelink.json.
  */
 
-/* Dyjix (hosting) */
+/* Dyjix (hosting) — brand blue from dyjix.eu */
 .button-dyjix {
-  --button-text: #1A1A1A;
-  --button-background: #FFFFFF;
-  --button-border: 1px solid #2D6CDF;
+  --button-text: #ffffff;
+  --button-background: #2563EB;
 }
