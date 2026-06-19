@@ -4,8 +4,9 @@
  * `"brand": "<name>"` (or `"color": "<name>"`) in littlelink.json.
  */
 
-/* Dyjix (hosting) — brand blue from dyjix.eu */
+/* Dyjix (hosting) — gradient from the logo blues (dodgerblue -> darkslateblue) */
 .button-dyjix {
   --button-text: #ffffff;
-  --button-background: #2563EB;
+  --button-background: #247CEC;
+  background-image: linear-gradient(135deg, #247CEC 0%, #093176 100%);
 }
