@@ -25,69 +25,69 @@ function resolveIcon(item: LittleLinkItem): string | null {
   return name ? `/littlelink/icons/${name}.svg` : null
 }
 
+// Load the complete, original LittleLink stylesheets (served from /public).
+// `theme-auto` makes LittleLink follow the browser's light/dark preference.
 useHead({
   title: profile.title ?? profile.name,
+  htmlAttrs: { class: 'theme-auto' },
   meta: profile.description
     ? [{ name: 'description', content: profile.description }]
     : [],
+  link: [
+    { rel: 'stylesheet', href: '/littlelink/css/reset.css' },
+    { rel: 'stylesheet', href: '/littlelink/css/style.css' },
+    { rel: 'stylesheet', href: '/littlelink/css/brands.css' },
+  ],
 })
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col bg-background text-foreground">
-    <div class="absolute top-4 right-4 z-10">
-      <SwitchTheme />
-    </div>
+  <div class="container">
+    <div class="column">
+      <img
+        v-if="profile.avatar"
+        class="avatar"
+        :class="`
+          avatar--${profile.avatarShape ?? 'rounded'}
+        `"
+        :src="profile.avatar"
+        :alt="profile.name"
+      >
 
-    <main class="flex flex-1 flex-col items-center justify-center">
-      <div class="ll-root">
-        <img
-          v-if="profile.avatar"
-          :src="profile.avatar"
-          :alt="profile.name"
-          class="avatar"
+      <h1>
+        <div>{{ profile.name }}</div>
+      </h1>
+      <p v-if="profile.bio">
+        {{ profile.bio }}
+      </p>
+
+      <div class="button-stack" role="navigation">
+        <a
+          v-for="(item, index) in profile.links"
+          :key="index"
+          class="button"
           :class="`
-            avatar--${profile.avatarShape ?? 'rounded'}
+            button-${resolveColor(item)}
           `"
+          :href="item.url"
+          target="_blank"
+          rel="noopener"
+          role="button"
         >
-
-        <h1>{{ profile.name }}</h1>
-        <p v-if="profile.bio" class="bio">
-          {{ profile.bio }}
-        </p>
-
-        <nav class="button-stack" role="navigation">
-          <a
-            v-for="(item, index) in profile.links"
-            :key="index"
-            class="button"
-            :class="`
-              button-${resolveColor(item)}
-            `"
-            :href="item.url"
-            target="_blank"
-            rel="noopener"
-            role="button"
+          <img
+            v-if="resolveIcon(item)"
+            class="icon"
+            aria-hidden="true"
+            :src="resolveIcon(item)!"
+            :alt="`${item.label} logo`"
           >
-            <img
-              v-if="resolveIcon(item)"
-              class="icon"
-              aria-hidden="true"
-              :src="resolveIcon(item)!"
-              :alt="`${item.label} logo`"
-            >
-            {{ item.label }}
-          </a>
-        </nav>
-
-        <footer v-if="profile.footer" class="ll-footer">
-          {{ profile.footer }}
-        </footer>
+          {{ item.label }}
+        </a>
       </div>
-    </main>
+
+      <footer v-if="profile.footer">
+        {{ profile.footer }}
+      </footer>
+    </div>
   </div>
 </template>
-
-<style>
-@import '@/assets/css/littlelink.css';
-</style>
