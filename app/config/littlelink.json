@@ -1,0 +1,38 @@
+{
+  "title": "Nicolas Favre",
+  "description": "All my links in one place.",
+  "avatar": "/littlelink/avatar.png",
+  "avatarShape": "rounded",
+  "name": "Nicolas Favre",
+  "bio": "All my links in one place.",
+  "links": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/nicolasfvrx",
+      "brand": "github"
+    },
+    {
+      "label": "Follow on X",
+      "url": "https://x.com/",
+      "brand": "x"
+    },
+    {
+      "label": "Telegram",
+      "url": "https://t.me/",
+      "brand": "telegram"
+    },
+    {
+      "label": "Email me",
+      "url": "mailto:nicolas@favre.icu",
+      "brand": "generic-email",
+      "color": "default"
+    },
+    {
+      "label": "Visit my website",
+      "url": "https://favre.icu",
+      "brand": "generic-website",
+      "color": "default"
+    }
+  ],
+  "footer": "Powered by Sink"
+}
