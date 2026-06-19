@@ -61,11 +61,16 @@
   box-sizing: border-box;
   cursor: pointer;
   overflow-wrap: break-word;
+  color: var(--button-text, #000000);
+  background-color: var(--button-background, transparent);
+  background-image: var(--button-background-image, none);
+  border: var(--button-border, none);
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 .ll-root .button:hover {
   filter: brightness(90%);
   transform: translateY(-1px);
+  color: var(--button-text);
 }
 .ll-root .icon {
   width: 1.25rem;
